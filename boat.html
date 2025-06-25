@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Connect to Bluetooth Earbuds</title>
+</head>
+<body>
+  <h1>boAt Airdopes Bluetooth Test</h1>
+  <button onclick="connectBluetooth()">Connect to Airdopes</button>
+
+  <script>
+    async function connectBluetooth() {
+      try {
+        const device = await navigator.bluetooth.requestDevice({
+          acceptAllDevices: true,
+          optionalServices: []
+        });
+
+        console.log('Connected to:', device.name);
+        alert('Connected to: ' + device.name);
+      } catch (error) {
+        console.error(error);
+        alert('Error: ' + error.message);
+      }
+    }
+  </script>
+</body>
+</html>
